@@ -33,3 +33,4 @@ Read the full guide here: [Pre-Development: Zero to Ready](docs/PRE_DEV.md)
 - `AGENTS.md` — Agent instructions and coding conventions.
 - `docs/PRE_DEV.md` — Pre-development environment setup guide.
 - Source code and examples developed throughout the mentoring program.
+
