@@ -126,7 +126,7 @@ No errors? You're ready.
 
 Fork this repository to your own GitHub account so you have a clean copy to work in.
 
-1. Go to [github.com/814north/vesalius](https://github.com/814north/vesalius)
+1. Go to [github.com/ssgeejr/vesalius](https://github.com/ssgeejr/vesalius)
 2. Click the **Fork** button (top-right)
 3. Choose your personal account as the owner and click **Create fork**
 
