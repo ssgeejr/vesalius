@@ -1,0 +1,53 @@
+api_key:
+domain:
+email:
+agent_id:
+location:
+group_id:
+dept_id:
+resp_id:
+contact_nbr:
+
+curl -u '${api_key}:X' 'https://${domain}.freshservice.com/api/v2/agents/me'
+
+curl -s -u '${api_key}:X' \
+        'https://${domain}.freshservice.com/api/v2/tickets?email=${email}' | jq
+
+curl -s -u '${api_key}:X' \
+        'https://${domain}.freshservice.com/api/v2/search/tickets?query="agent_id:${agent_id}"' | jq
+		
+curl -s -u '${api_key}:X' \
+--get \
+--data-urlencode 'query="requester_email:\"${email}\""' \
+'https://${domain}.freshservice.com/api/v2/search/tickets' | jq
+
+curl -s -u '${api_key}:X' \
+'https://${domain}.freshservice.com/api/v2/tickets?email=${email}' | \
+jq '.tickets[] | select(.responder_id == ${agent_id})'
+
+## THIS is the one we want to use for simple, clean polling 
+curl -s -u '${api_key}:X' \
+'https://${domain}.freshservice.com/api/v2/tickets?email=${email}' | \
+jq '.tickets[] | select(.responder_id == ${agent_id}) | {id, subject, status, priority, type, category, group_id, responder_id, description_text}'
+
+
+### +++++CREATE TICKET+++++
+curl -s -u "${api_key}:X" -H "Content-Type: application/json" -d '{"subject":"${subject}","description":"${description}","email":"${email}","workspace_id":2,"status":2,"source":3,"impact":1,"urgency":1,"group_id":${group_id},"responder_id":${resp_id},"department_id":${dept_id},"custom_fields":{"location":"${location}","contact_number":"${contact_nbr}"}}' "https://${domain}.freshservice.com/api/v2/tickets" | jq
+
+### DATA --------------------
+curl -s -u "${api_key}:X" -H "Content-Type: application/json" -d '{"subject":"${subject}","description":"${description}","email":"${email}","workspace_id":2,"status":2,"source":3,"priority":2,"impact":1,"urgency":1,"group_id":${group_id},"responder_id":${resp_id},"department_id":${dept_id},"custom_fields":{"location":"${location}","contact_number":"${contact_nbr}"}}' "https://${domain}.freshservice.com/api/v2/tickets" | jq
+
+
+### DATA --------------------
+curl -s -u "${api_key}:X" "https://${domain}.freshservice.com/api/v2/tickets?per_page=1" | jq '.tickets[] | {id,subject,source,status,priority,type,workspace_id}'
+
+### DATA --------------------
+curl -s -u "${api_key}:X" -H "Content-Type: application/json" -d '{"subject":"${subject}","description"::${description}","email":"${email}","priority":2,"status":2}' 
+
+### DATA --------------------
+curl -s -u "${api_key}:X" "https://${domain}.freshservice.com/api/v2/tickets?per_page=1" | jq
+
+### DATA --------------------
+curl -s -u "${api_key}:X" "https://${domain}.freshservice.com/api/v2/groups" | jq '.groups[] | {id,name}'
+curl -s -u "${api_key}:X" "https://${domain}.freshservice.com/api/v2/agents" | jq '.agents[] | {id,email,first_name,last_name}'
+curl -s -u "${api_key}:X" "https://${domain}.freshservice.com/api/v2/departments" | jq '.departments[] | {id,name}'

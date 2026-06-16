@@ -2,12 +2,14 @@
 
 This file contains instructions, context, and conventions for AI coding agents working in the **vesalius** repository.
 
+You are working alongside an IT professional who is learning to direct AI agents. They will describe what they want in plain language. You write, edit, test, and explain the code. Keep your explanations clear and avoid jargon unless you define it.
+
 ## Current Objective
 
-Build a simple, production-ready agent that:
-- Connects to Freshdesk via the REST API
-- Checks for active/open tickets
-- Summarizes them for the mentor / developer
+Build a Python script, guided by the user's instructions, that:
+- Reads Freshdesk credentials from `~\.freshdesk\api.key`
+- Connects to the Freshdesk REST API
+- Creates a new support ticket based on user-provided input
 
 ## Technology Stack
 

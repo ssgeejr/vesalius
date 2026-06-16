@@ -81,7 +81,19 @@ A fast, reliable text editor for quick edits, config tweaks, and reading code.
 
 ---
 
-## 5. Install PyCharm Community
+## 5. Install Tabby
+
+Tabby is a self-hosted terminal that lets you run multiple terminal sessions inside a single window — think tabs and split panes, all persistent.
+
+1. Download from [tabby.sh](https://tabby.sh/) (choose the Windows installer).
+2. Run the installer — defaults are fine.
+3. Launch Tabby. You can open new tabs (`Ctrl+T`), split panes (`Ctrl+\` or `Ctrl+|`), and manage sessions from the sidebar.
+
+**Why it's useful:** instead of juggling several separate terminal windows, keep every shell — PowerShell, CMD, SSH sessions — organized in one place. Codex commands work perfectly inside Tabby.
+
+---
+
+## 6. Install PyCharm Community
 
 JetBrains PyCharm Community Edition is a full IDE for Python development.
 
@@ -93,7 +105,7 @@ JetBrains PyCharm Community Edition is a full IDE for Python development.
 
 ---
 
-## 6. Install ChatGPT Codex for Windows
+## 7. Install ChatGPT Codex for Windows
 
 Codex is the AI agent you will work with. It runs inside the Codex desktop app and connects to ChatGPT's models.
 
@@ -105,7 +117,7 @@ Codex is the AI agent you will work with. It runs inside the Codex desktop app a
 
 ---
 
-## 7. Verify Everything
+## 8. Verify Everything
 
 Run these commands in a single terminal session to confirm all tools are ready:
 
@@ -122,11 +134,55 @@ No errors? You're ready.
 
 ---
 
+## 8. Configure Your Freshdesk Credentials
+
+The Python scripts in this project read your Freshdesk credentials from a config file in your home directory. This keeps secrets off of disk inside the project folder and out of version control.
+
+Open PowerShell and run the following to create the folder and file:
+
+```powershell
+New-Item -ItemType Directory -Path "$HOME\.freshdesk" -Force
+New-Item -ItemType File -Path "$HOME\.freshdesk\api.key" -Force
+notepad++ "$HOME\.freshdesk\api.key"
+```
+
+Notepad++ will open the file. Paste in the following and fill in your values:
+
+```
+api_key:
+domain:
+email:
+agent_id:
+location:
+group_id:
+dept_id:
+resp_id:
+contact_nbr:
+```
+
+| Field | What to put here |
+|-------|-----------------|
+| `api_key` | Your Freshdesk API key (found under your profile → API Key) |
+| `domain` | Your Freshdesk subdomain (e.g. `acme` from `acme.freshservice.com`) |
+| `email` | The agent email address used to log in |
+| `agent_id` | Your numeric agent ID (returned by the `/agents/me` endpoint) |
+| `location` | The custom location field value for new tickets |
+| `group_id` | Numeric ID of the group tickets are assigned to |
+| `dept_id` | Numeric ID of your department |
+| `resp_id` | Numeric agent ID of the default responder |
+| `contact_nbr` | Contact number for the custom field on new tickets |
+
+Save and close the file. The scripts will read this file at runtime — you will never need to paste credentials into the code.
+
+> **Security note:** This file lives outside the repository (`~\.freshdesk\`) and is never committed to GitHub. Do not move or copy it into the project folder.
+
+---
+
 ## Next Steps
 
 Fork this repository to your own GitHub account so you have a clean copy to work in.
 
-1. Go to [github.com/814north/vesalius](https://github.com/814north/vesalius)
+1. Go to [github.com/ssgeejr/vesalius](https://github.com/ssgeejr/vesalius)
 2. Click the **Fork** button (top-right)
 3. Choose your personal account as the owner and click **Create fork**
 
@@ -140,5 +196,3 @@ cd vesalius
 Open it in Codex and we will start with the `AGENTS.md` file.
 
 Happy building.
-
-

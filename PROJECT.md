@@ -2,55 +2,54 @@
 
 ## Goal
 
-Equip an IT team with practical AI-assisted development skills by working alongside a powerful coding agent — without writing a single line of code themselves.
+Equip an IT team with a practical, repeatable skill: using an AI agent to create and edit software, files, and documentation — without writing code by hand.
 
-## Objective
+## The Skill You Are Building
 
-Use AI agents (Codex, ChatGPT, Grok, Deepseek) as your pair programmer. You provide the instructions, the feedback, and the direction. The AI writes, edits, and tests the code. Your job is to review, guide, and learn the workflow.
+Directing an AI is a skill. Like any skill, it improves with practice. This project gives you a real task to practice on — a Python tool that connects to Freshdesk and creates tickets — so you learn by doing, not by reading about it.
 
-### What You Will Do
+By the end you will know how to:
 
-- **Describe what you want** in plain language.
-- **Review the code** the agent produces.
-- **Give feedback** — "change this," "add that," "that's not right."
-- **Run and verify** the outputs.
-- **Learn** how AI-assisted development works by doing it.
+- Give an AI clear, specific instructions
+- Read and evaluate what it produces
+- Push back when something is wrong
+- Build iteratively — one small piece at a time
 
-### What the AI Will Do
+## How It Works
 
-- **Write all code** — agents, scripts, tests, configs.
-- **Edit and refactor** based on your instructions.
-- **Run and debug** — when something breaks, the AI fixes it.
-- **Manage the repo** — branching, committing, tagging.
-- **Answer questions** about the code as it builds it.
+You provide the intent. The AI provides the implementation.
 
-## How to Work With Your Agent
+| You do | The AI does |
+|--------|------------|
+| Describe what you want | Write the code |
+| Review the output | Edit and refactor |
+| Give feedback | Fix what's wrong |
+| Run and verify | Debug and retry |
+| Ask questions | Explain its decisions |
 
-1. **Be specific.** "Check for open Freshdesk tickets" is better than "build a tool."
-2. **Be iterative.** Small requests work best. Ask for one thing, review it, then ask for the next.
-3. **Trust but verify.** Read the code the agent produces. If something looks wrong, say so.
-4. **Ask for explanations.** "Why did you structure it this way?" "What would happen if..."
-5. **Use the tools provided.** PyCharm for viewing code, Notepad++ for quick edits, PowerShell for running things.
+You are not learning to code. You are learning to **direct** a coding agent. That is a different skill — and one that every IT professional will need.
 
-## Project Scope
+## What Gets Built
 
-This repository contains:
+A Python script that:
 
-- **Agents** — small, focused tools built with AI (e.g., the Freshdesk ticket checker).
-- **Training materials** — guides for setting up your environment and learning the workflow.
-- **Documentation** — instructions for both the AI agents and the team.
+- Reads your Freshdesk credentials from `~\.freshdesk\api.key`
+- Connects to the Freshdesk API
+- Creates a new support ticket
 
-## Getting Started
+The script is built entirely through conversation with the AI. You describe what you want, step by step, and the AI writes it.
 
-1. Follow the [Pre-Development Guide](docs/PRE_DEV.md) to set up your environment.
-2. Fork this repo to your own GitHub account.
-3. Clone your fork locally.
-4. Open it in Codex and start giving instructions.
+## Working With the AI Effectively
 
-That's it. No setup scripts to write, no boilerplate to generate. Just talk to the agent and build.
+- **Be specific.** "Create a ticket with subject 'Test' assigned to group 12345" beats "make a ticket."
+- **Be iterative.** One request at a time. Review, then ask for the next thing.
+- **Push back.** If it looks wrong, say so. The AI will try again.
+- **Ask why.** "Why did you structure it that way?" is always a valid question.
+- **Read the output.** You don't need to understand every line — but you should understand what it does.
 
-## Mindset
+## Reference Materials
 
-You are not learning to code. You are learning to **direct** a coding agent. This is a new skill — one that every IT professional will need in the years ahead. The syntax doesn't matter. Your ability to break down a problem, communicate it clearly, and evaluate the result is what makes you effective.
-
-Think of it like this: you're the architect. The AI is the construction crew. You draw the plan, they pour the concrete. You inspect the work, they fix what needs fixing. You don't need to know how to mix cement — you just need to know what a good building looks like.
+- [Pre-Development Setup](docs/PRE_DEV.md)
+- [Brown Bag Tutorial](brownbag.md)
+- [Freshdesk API Examples](freshdesk/api.example.txt)
+- [Agent Instructions](AGENTS.md)

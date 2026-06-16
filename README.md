@@ -1,36 +1,31 @@
 # vesalius
-AI Codex tutorial
+AI-Assisted Development — Brown Bag Series
 
-## About This Project
+## What This Is
 
-This project is central to mentoring new AI users in desktop/CLI project workflows and software development. It serves as a hands-on learning environment where participants explore the tools and practices that power modern AI-assisted coding.
+A hands-on learning series for IT professionals who want to use AI as a real working tool — not just a search engine.
 
-## Learning Objectives
+You will direct an AI agent to write, edit, and manage code and documentation. The AI does the typing. You do the thinking.
 
-- **Understanding AGENTS.md:** Create and configure an `AGENTS.md` file to provide context, instructions, and conventions for AI coding agents working within this repository.
-- **Building a Simple Agent:** Develop a basic agent that checks for active/open tickets in Freshdesk, applying the skills and patterns learned throughout the mentorship program.
+By the end, you will have used an AI to build a working Python tool that connects to Freshdesk and creates tickets — without writing a single line of code yourself.
 
-## Pre-Development
+## The Goal
 
-Before you start, set up your local development environment. We have a concise training document that walks you through installing and verifying every tool you need:
+> **End users can use an AI in a TUI or desktop app to create and edit software, files, and documentation.**
 
-| Tool | Purpose |
-|------|---------|
-| **Git** | Version control |
-| **Python 3** | Scripting and agent development |
-| **pip3** | Python package management |
-| **SSH (ssh-keygen)** | Secure authentication to GitHub |
-| **Notepad++** | Fast text editor for quick edits |
-| **PyCharm Community** | Full Python IDE |
-| **ChatGPT Codex** | AI-assisted coding agent |
-| **[OpenWebUI Desktop](https://github.com/open-webui/desktop/)** | Local LLM web interface *(optional, not used in this course)* |
+That's it. That's the skill. Everything in this series is in service of that one outcome.
 
-Read the full guide here: [Pre-Development: Zero to Ready](docs/PRE_DEV.md)
+## Get Started
+
+1. [Pre-Development: Zero to Ready](docs/PRE_DEV.md) — set up your environment first.
+2. [Brown Bag Tutorial](brownbag.md) — then work through the steps.
 
 ## Structure
 
-- `README.md` — Project overview and documentation.
-- `AGENTS.md` — Agent instructions and coding conventions.
-- `docs/PRE_DEV.md` — Pre-development environment setup guide.
-- Source code and examples developed throughout the mentoring program.
-
+| Path | Purpose |
+|------|---------|
+| `README.md` | This file |
+| `AGENTS.md` | Instructions and conventions for AI agents working in this repo |
+| `docs/PRE_DEV.md` | Environment setup guide |
+| `brownbag/` | Step-by-step tutorial materials |
+| `freshdesk/` | Freshdesk API reference and examples |
