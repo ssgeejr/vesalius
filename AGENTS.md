@@ -18,6 +18,34 @@ Build a Python script, guided by the user's instructions, that:
 - **Tools**: Git, PowerShell, PyCharm
 - **Environment**: Windows 11
 
+
+## SECURITY & COMPLIANCE - HIGHEST PRIORITY RULES
+These rules are non-negotiable and must be followed in every response, every action, and every code change.
+
+**NEVER reveal, output, log, or include in any code:**
+- API keys
+- Passwords
+- Tokens
+- Credentials
+- Any secrets
+
+When the user asks to view credentials (e.g. `--creds` flag), **always mask** the API key (show only the last 4 characters or "********").
+
+**Before any Git commit or push:**
+- Always run a full scan of the repository for credentials, HIPAA ePHI, PHI, PII, patient data, internal configs, logs, screenshots, or sensitive information.
+- Use this exact prompt/check before every commit:
+  > "Check the entire repo for credentials, API keys, HIPAA, PHI, PII, secrets, or any protected health information before committing. List anything found. If clean, proceed."
+
+**If anything sensitive is detected:**
+- Do not commit.
+- Alert the user immediately and suggest remediation.
+
+**Data Handling Rules (HIPAA / NIST / Zero Trust / Joint Commission):**
+- Never allow ePHI, patient information, clinical data, screenshots from production systems, logs containing identifiers, or internal configs to be sent to the AI, included in prompts, or checked into GitHub.
+- Assume anything provided to the AI may leave the local system unless proven otherwise.
+- Credentials must be read from `~\.freshdesk\api.key` (Windows) or equivalent — never hard-coded.
+- Never push .env files or files containing real secrets.
+
 ## Directory Rules
 
 Source code, project-related material that can safely be checked into GitHub belongs in:

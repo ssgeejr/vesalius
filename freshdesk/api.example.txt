@@ -8,6 +8,11 @@ dept_id:
 resp_id:
 contact_nbr:
 
+
+open, read and print the files under my home directory (windows 11) in the file .freshdesk\api.key
+do not print my API key. 
+
+
 curl -u '${api_key}:X' 'https://${domain}.freshservice.com/api/v2/agents/me'
 
 curl -s -u '${api_key}:X' \
@@ -19,7 +24,7 @@ curl -s -u '${api_key}:X' \
 curl -s -u '${api_key}:X' \
 --get \
 --data-urlencode 'query="requester_email:\"${email}\""' \
-'https://${domain}.freshservice.com/api/v2/search/tickets' | jq
+'https://${domain}.freshservice.com/api/v2/search/tickets?per_page=1' | jq
 
 curl -s -u '${api_key}:X' \
 'https://${domain}.freshservice.com/api/v2/tickets?email=${email}' | \
